@@ -4,12 +4,19 @@ import authRouter from "./routes/auth.route.js";
 import notificationRouter from "./routes/notification.route.js";
 import productRouter from "./routes/product.route.js";
 import bidRouter from "./routes/bid.route.js";
-import paymentRouter from "./routes/payment.route.js"
+import paymentRouter from "./routes/payment.route.js";
 
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(
+    cors({
+        origin: [
+            "http://localhost:3000",
+            "https://refurbished-goods-marketplace-app.onrender.com",
+        ],
+    })
+);
 
 app.use("/api/auth", authRouter);
 app.use("/api/notifications", notificationRouter);
