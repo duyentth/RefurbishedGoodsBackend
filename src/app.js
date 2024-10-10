@@ -9,6 +9,9 @@ import job from "./cron.js";
 
 const app = express();
 
+//starting the job sending GET request to server for every 14 minutes to make the server always active on Render.com
+job.start();
+
 app.use(express.json());
 app.use(
   cors({
@@ -19,14 +22,15 @@ app.use(
   })
 );
 
+app.get("/test", (req, res) => {
+  console.log("Test GET request");
+  res.send({ status: 200, message: " test GET request OK" });
+});
 app.use("/api/auth", authRouter);
 app.use("/api/notifications", notificationRouter);
 app.use("/api/products", productRouter);
 app.use("/api/bids", bidRouter);
 app.use("/api/payments", paymentRouter);
-
-//starting the job sending GET request to server for every 14 minutes to make the server always active on Render.com
-job.start();
 
 //error handler
 app.use((error, req, res, next) => {

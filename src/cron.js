@@ -16,7 +16,7 @@ const URL = "https://refurbished-goods-marketplace-app-api.onrender.com";
 
 const job = new CronJob("*/14 * * * *", function () {
   https
-    .get(URL, (res) => {
+    .get(`${URL}/test`, (res) => {
       if (res.statusCode === 200) {
         console.log("GET request sent successfully");
       } else {

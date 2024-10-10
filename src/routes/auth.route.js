@@ -2,12 +2,12 @@ import express from "express";
 import { checkToken } from "../middlewares/auth.middleware.js";
 
 import {
-    updateUser,
-    getAllUsers,
-    getUserById,
-    login,
-    register,
-    getCurrentUser,
+  updateUser,
+  getAllUsers,
+  getUserById,
+  login,
+  register,
+  getCurrentUser,
 } from "../controllers/auth.controller.js";
 
 const router = express.Router();
