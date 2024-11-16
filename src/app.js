@@ -5,12 +5,12 @@ import notificationRouter from "./routes/notification.route.js";
 import productRouter from "./routes/product.route.js";
 import bidRouter from "./routes/bid.route.js";
 import paymentRouter from "./routes/payment.route.js";
-import job from "./cron.js";
+//import job from "./cron.js";
 
 const app = express();
 
 //starting the job sending GET request to server for every 14 minutes to make the server always active on Render.com
-job.start();
+//job.start();
 
 app.use(express.json());
 app.use(
